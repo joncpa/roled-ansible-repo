@@ -1,0 +1,23 @@
+---
+#playbook principal para correr todos los roles
+- name: complete with roles
+  hosts: all
+  become: yes
+  roles:
+    - configuration
+
+- name:
+  hosts: frontends
+  become: yes
+  roles:
+    - haproxy
+    
+- name:  
+  hosts: apps
+  become: yes
+  roles:
+    - tomcat
+    - index
+    - postgress
+    - apache
+...
